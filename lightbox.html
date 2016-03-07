@@ -45,8 +45,20 @@ window.onload = function() {
             var vlb_img = document.createElement('img');
             vlb_img.setAttribute('src', vlb_i);
             vlb_img.style.top = vlb_iY + 'px';
-            document.getElementById('vlb_overlay').appendChild(vlb_img);
+            vlb_ovrl.appendChild(vlb_img);
+
+            vlb_ovrl.addEventListener('click', function(vlb_e) {
+                vlb_c();
+            });
         }
+    };
+    var vlb_c = function() {
+        var vlb_bdy = document.getElementsByTagName('body')[0];
+        var vlb_ovrl = document.getElementById('vlb_overlay');
+        vlb_ovrl.style.opacity = 1;
+        (function fade() {
+            (vlb_ovrl.style.opacity -= .1) < 0 ? vlb_bdy.removeChild(vlb_ovrl) : setTimeout(fade, 40)
+        })();
     };
     var vlb_l = document.getElementsByClassName('lightbox');
     var vlb_lLen = vlb_l.length;
