@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Vanilla FE - Lightbox</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div class="lightbox">
+    <a href="/path/to/image">
+        <img src="/path/to/thumbnail">
+    </a>
+</div>
+<script type="text/js">
+/**
+ * DOM: <anytag class="lightbox"><a href="/path/to/image"><img src="/path/to/thumbnail"></a></anytag>
+ */
+window.onload = function() {
+    var o = function(i) {
+        if (i != '') {
+            
+        }
+    }
+    var l = document.getElementsByClassName('lightbox');
+    if (l.length > 0) {
+        var a = l.getElementsByTagName('a');
+        var aLen = a.length;
+        for (var i = 0; i < aLen; ++i) {
+            a[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                i = e.attribute('href');
+                o(i);
+            }
+        }
+    }
+}
+</script>
+</body>
+</html>
